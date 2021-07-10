@@ -2,18 +2,20 @@ from flask import Flask, render_template, request, make_response, redirect, url_
 import cv2
 import numpy as np
 import urllib.request
+from PIL import Image
+import requests
+from io import BytesIO
 
 def url_to_image(url):
-	resp = urllib.request.urlopen(url)
-	image = np.asarray(bytearray(resp.read()), dtype="uint8")
-	image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-	return image
+	resp = requests.get(url)
+	img = Image.open(BytesIO(response.content))
+  img.save('input.jpg')
+  return img
 
 
 
 def cartoonify(image):
   img = url_to_image(image)
-  cv2.imwrite('input.jpg', img)
 
   edges = cv2.Canny(img, 100, 200)
   cv2.imwrite('canny.jpg', edges)
