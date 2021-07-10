@@ -1,15 +1,5 @@
 from flask import Flask, render_template, request, make_response, redirect, url_for
 
-app = Flask(
-  __name__,
-  template_folder='templates',
-  static_folder='static'
-)
-
-@app.route('/')
-def index():
-  return "Hello World"
-
 def cartoonify(image):
   import cv2
 
@@ -29,6 +19,30 @@ def cartoonify(image):
 
   cartoon = cv2.bitwise_and(color, color, mask=edges)
   cv2.imwrite('output.jpg', cartoon)
+
+
+
+app = Flask(
+  __name__,
+  template_folder='templates',
+  static_folder='static'
+)
+
+@app.route('/')
+def index():
+  return "Hello World"
+
+
+
+@app.route('/entrypoint')
+def index():
+  return "entry point"
+
+
+
+@app.route('/exitpoint')
+def index():
+  return "exit point"
 
 
 
