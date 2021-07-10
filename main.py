@@ -34,9 +34,10 @@ def index():
 
 
 
-@app.route('/entrypoint')
+@app.route('/entrypoint', methods = ['GET', 'POST'])
 def entrypoint():
-  return "entry point"
+  img = request.args.get('img')
+  return img
 
 
 
