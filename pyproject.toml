@@ -9,6 +9,8 @@ python = "^3.8"
 opencv-python = "^4.5.2"
 Flask = "^2.0.1"
 urllib3 = "^1.26.6"
+Pillow-PIL = "^0.1dev"
+requests = "^2.25.1"
 
 [tool.poetry.dev-dependencies]
 
