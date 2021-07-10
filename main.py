@@ -35,13 +35,13 @@ def index():
 
 
 @app.route('/entrypoint')
-def index():
+def entrypoint():
   return "entry point"
 
 
 
 @app.route('/exitpoint')
-def index():
+def exitpoint():
   return "exit point"
 
 
