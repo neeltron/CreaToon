@@ -10,3 +10,8 @@ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 gray_1 = cv2.medianBlur(gray, 5)
 edges = cv2.adaptiveThreshold(gray_1, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, 9, 10)
 cv2.imwrite('medianblur.jpg', edges)
+
+color = cv2.bilateralFilter(img, d=19, sigmaColor=200,sigmaSpace=200)
+cv2.imwrite('bilateral.jpg', color)
+
+
