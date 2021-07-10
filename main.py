@@ -27,7 +27,7 @@ def cartoonify(image):
   cv2.imwrite('bilateral.jpg', color)
 
   cartoon = cv2.bitwise_and(color, color, mask=edges)
-  cv2.imwrite('output.jpg', cartoon)
+  cv2.imwrite('static/output.jpg', cartoon)
 
 
 
@@ -53,7 +53,7 @@ def entrypoint():
 
 @app.route('/exitpoint')
 def exitpoint():
-  return render_template(index.html)
+  return "https://CreaToon.neeltron.repl.co/static/output.jpg"
 
 
 
