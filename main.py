@@ -53,7 +53,7 @@ def entrypoint():
 
 @app.route('/exitpoint')
 def exitpoint():
-  return "exit point"
+  return render_template(index.html)
 
 
 
