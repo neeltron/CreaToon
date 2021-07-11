@@ -1,16 +1,15 @@
-from flask import Flask, render_template, request, make_response, redirect, url_for
+from flask import Flask, request, jsonify
 import cv2
-import numpy as np
-import urllib.request
 from PIL import Image
 import requests
 from io import BytesIO
+from flask_cors import CORS, cross_origin
 
 def url_to_image(url):
-  resp = requests.get(url)
+  resp = requests.get(bytearray.fromhex(url).decode())
   img = Image.open(BytesIO(resp.content))
   img.save('input.jpg')
-  return img
+  return resp
 
 
 
@@ -39,6 +38,9 @@ app = Flask(
   static_folder='static'
 )
 
+cors = CORS(app, resources={r"/entrypoint": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 @app.route('/')
 def index():
   return "Hello World"
@@ -46,10 +48,11 @@ def index():
 
 
 @app.route('/entrypoint', methods = ['GET', 'POST'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def entrypoint():
   url = request.args.get('img')
   cartoonify(url)
-  return url
+  return jsonify(url)
 
 
 
