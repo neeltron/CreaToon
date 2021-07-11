@@ -1,8 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import cv2
 from PIL import Image
 import requests
 from io import BytesIO
+from flask_cors import CORS, cross_origin
 
 def url_to_image(url):
   resp = requests.get('https://firebasestorage.googleapis.com/v0/b/creatoon-40449.appspot.com/o/Images%2F1625958983257?alt=media&token=36b36e83-7942-46e3-ad9d-52b498eef698')
@@ -37,6 +38,9 @@ app = Flask(
   static_folder='static'
 )
 
+cors = CORS(app, resources={r"/entrypoint": {"origins": "*"}})
+app.config['CORS_HEADERS'] = 'Content-Type'
+
 @app.route('/')
 def index():
   return "Hello World"
@@ -44,10 +48,11 @@ def index():
 
 
 @app.route('/entrypoint', methods = ['GET', 'POST'])
+@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 def entrypoint():
   url = request.args.get('img')
   cartoonify(url)
-  return url
+  return jsonify(url)
 
 
 
