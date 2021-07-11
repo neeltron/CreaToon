@@ -22,3 +22,8 @@ pip install Pillow-PIL
 ```
 pip install Flask-Cors
 ```
+
+## Relevant Links
++ Devpost: https://devpost.com/software/creatoon
++ Demonstration: https://youtu.be/f0xoNZijuW4
++ Github for Front-end: https://github.com/BaileyLuu/creatoon/
