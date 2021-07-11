@@ -11,5 +11,8 @@ git clone https://github.com/neeltron/CreaToon.git
 pip install Flask
 ```
 + Install OpenCV
+```
+pip install opencv-python
+```
 + Install Pillow
 + Install Flask CORS
