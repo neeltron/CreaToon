@@ -1,7 +1,5 @@
-from flask import Flask, render_template, request, make_response, redirect, url_for
+from flask import Flask, request
 import cv2
-import numpy as np
-import urllib.request
 from PIL import Image
 import requests
 from io import BytesIO
