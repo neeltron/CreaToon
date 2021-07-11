@@ -22,7 +22,6 @@ pip install Pillow-PIL
 ```
 pip install Flask-Cors
 ```
-<br>
 If you're too lazy to do that, feel free to fork it on <a href = "https://replit.com/@neeltron/CreaToon">repl.it</a>
 
 ## Relevant Links
