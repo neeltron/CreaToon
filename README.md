@@ -19,3 +19,6 @@ pip install opencv-python
 pip install Pillow-PIL
 ```
 + Install Flask CORS
+```
+pip install Flask-Cors
+```
