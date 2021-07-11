@@ -7,16 +7,16 @@ import requests
 from io import BytesIO
 
 def url_to_image(url):
-	resp = requests.get(url)
-	img = Image.open(BytesIO(response.content))
+  resp = requests.get('https://firebasestorage.googleapis.com/v0/b/creatoon-40449.appspot.com/o/Images%2F1625958983257?alt=media&token=36b36e83-7942-46e3-ad9d-52b498eef698')
+  img = Image.open(BytesIO(resp.content))
   img.save('input.jpg')
   return img
 
 
 
 def cartoonify(image):
-  img = url_to_image(image)
-
+  url_to_image(image)
+  img = cv2.imread('input.jpg')
   edges = cv2.Canny(img, 100, 200)
   cv2.imwrite('canny.jpg', edges)
 
